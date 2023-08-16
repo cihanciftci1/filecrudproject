@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -20,12 +17,25 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileController {
     private final FileManager fileManager;
 
-    // TODO log ekle , spring.jpa.hibernate.ddl-auto kontrol et
-
     @PostMapping
-    public ResponseEntity<BaseResponse> save(@RequestParam(name = "file")MultipartFile file){
-        log.info("File controller, create is starts with | fileName {}", file.getName());
+    public ResponseEntity<BaseResponse> save(@RequestParam(name = "file") MultipartFile file){
+        log.info("File controller, file save starts with | fileName {}", file.getName());
         BaseResponse response = fileManager.save(file);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BaseResponse> retrieve(@PathVariable("id") Integer id){
+        log.info("File controller, retrieve file starts with | id : {}", id);
+        BaseResponse response = fileManager.retrieve(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<BaseResponse> update(@RequestParam(name = "id") Integer id, @RequestParam(name = "file") MultipartFile file){
+        log.info("File controller, file update starts with | id : {}, fileName : {}", id, file.getName());
+        BaseResponse response = fileManager.update(id, file);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
