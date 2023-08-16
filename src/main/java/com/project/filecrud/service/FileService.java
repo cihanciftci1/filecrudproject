@@ -38,7 +38,7 @@ public class FileService {
     public FileVO retrieve(Integer id){
         log.info("File Service retrieve file | id : {}", id);
         Optional<File> file = fileRepository.findById(id);
-        if(file.isEmpty()) throw new ObjectNotFoundException(id, file.getClass().getName());
+        if(file.isEmpty()) throw new ObjectNotFoundException(id, File.class.getSimpleName());
         log.info("File retrieved | id : {}, fileName : {}",id, file.get().getName());
 
         return fileToVOConverter.convert(file.get());
@@ -58,5 +58,12 @@ public class FileService {
         fileVO.setId(id);
         log.info("File updated successfully | fileName : {}, id : {}", fileVO.getName(), fileVO.getId());
         return fileVO;
+    }
+
+    public Integer delete(Integer id){
+        log.info("File Service is deleting file with | id : {}", id);
+        fileRepository.deleteById(id);
+        log.info("File Service deleted file with | id : {}", id);
+        return id;
     }
 }

@@ -1,16 +1,13 @@
 package com.project.filecrud.model.response.file;
 
 import com.project.filecrud.model.response.BaseResponse;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
-@Getter
-@Setter
-public class FileSaveFailResponse extends BaseResponse {
-    public FileSaveFailResponse(String message){
+public class FileDeleteFailResponse extends BaseResponse {
+
+    public FileDeleteFailResponse(String message){
         super(message);
         this.setStatus(HttpStatus.BAD_REQUEST);
-        this.setSuccess(false);
+        this.setSuccess(true);
     }
 }

@@ -3,7 +3,8 @@ package com.project.filecrud.enums;
 public enum ErrorMessage {
     INVALID_FILE_SIZE("File size cannot be greater than 5 MB!"),
     INVALID_FILE_EXTENSION("Invalid file extension!"),
-    SAVE_EXCEPTION("An error occurred while trying to save file!");
+    UNEXPECTED_ERROR("An unexpected error occurred!"),
+    FILE_NOT_FOUND("File is not found with given id!");
 
     private final String value;
 

@@ -37,4 +37,11 @@ public class FileController {
         BaseResponse response = fileManager.update(id, file);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BaseResponse> delete(@PathVariable("id") Integer id){
+        log.info("File controller, delete file starts with | id : {}", id);
+        BaseResponse response = fileManager.delete(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
