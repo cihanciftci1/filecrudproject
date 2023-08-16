@@ -2,8 +2,6 @@ package com.project.filecrud.model.response.file;
 
 import com.project.filecrud.model.response.BaseResponse;
 import com.project.filecrud.vo.FileVO;
-import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
