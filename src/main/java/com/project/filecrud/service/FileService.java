@@ -1,5 +1,6 @@
 package com.project.filecrud.service;
 
+import com.project.filecrud.converter.ByteArrayConverter;
 import com.project.filecrud.converter.FileToVOConverter;
 import com.project.filecrud.entity.File;
 import com.project.filecrud.enums.FileExtension;
@@ -21,15 +22,15 @@ public class FileService {
 
     public FileVO save(FileVO fileVO){
         log.info("File Service is saving file | fileName : {}", fileVO.getName());
-        File fileToSave = new File();
-        fileToSave.setName(fileVO.getName());
-        fileToSave.setSize(fileVO.getSize());
-        fileToSave.setExtension(FileExtension.valueOf(fileVO.getExtension()));
-        fileToSave.setBytes(fileVO.getBytes());
+        File file = new File();
+        file.setName(fileVO.getName());
+        file.setSize(fileVO.getSize());
+        file.setExtension(FileExtension.valueOf(fileVO.getExtension()));
+        file.setBytes(ByteArrayConverter.convertStringBytesToBytes(fileVO.getBytes()));
 
-        fileToSave = fileRepository.save(fileToSave);
+        file = fileRepository.save(file);
 
-        fileVO.setId(fileToSave.getId());
+        fileVO.setId(file.getId());
         log.info("File saved successfully | fileName : {}, id : {}", fileVO.getName(), fileVO.getId());
         return fileVO;
     }
@@ -52,7 +53,7 @@ public class FileService {
         file.get().setName(fileVO.getName());
         file.get().setExtension(FileExtension.valueOf(fileVO.getExtension()));
         file.get().setSize(fileVO.getSize());
-        file.get().setBytes(fileVO.getBytes());
+        file.get().setBytes(ByteArrayConverter.convertStringBytesToBytes(fileVO.getBytes()));
         fileRepository.save(file.get());
 
         fileVO.setId(id);

@@ -14,5 +14,5 @@ public class FileVO {
 
     private String extension;
 
-    private byte[] bytes;
+    private String bytes;
 }

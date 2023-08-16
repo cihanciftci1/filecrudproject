@@ -16,7 +16,7 @@ public class FileToVOConverter implements Function<File, FileVO>, Converter<File
                 .name(file.getName())
                 .size(file.getSize())
                 .extension(file.getExtension().toString())
-                .bytes(file.getBytes())
+                .bytes(ByteArrayConverter.convertBytesToStringBytes(file.getBytes()))
                 .build();
     }
 

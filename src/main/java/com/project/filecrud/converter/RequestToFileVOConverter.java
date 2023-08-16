@@ -18,7 +18,7 @@ public class RequestToFileVOConverter implements Function<MultipartFile, FileVO>
                 .name(file.getName())
                 .size(file.getSize())
                 .extension(Objects.nonNull(file.getOriginalFilename()) ? file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1) : "")
-                .bytes(file.getBytes()).build();
+                .bytes(ByteArrayConverter.convertBytesToStringBytes(file.getBytes())).build();
     }
 
     @Override
