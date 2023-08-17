@@ -1,11 +1,11 @@
-package com.project.filecrud.vo;
+package com.project.filecrud.dto;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class FileVO {
+public class FileDTO {
     private Integer id;
 
     private String name;

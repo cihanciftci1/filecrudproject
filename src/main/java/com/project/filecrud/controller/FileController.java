@@ -45,3 +45,6 @@ public class FileController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
+
+
+//TODO authentication -> unit test -> swagger -> docker -> postman -> github readme

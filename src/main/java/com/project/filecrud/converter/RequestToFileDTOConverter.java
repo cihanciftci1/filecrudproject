@@ -1,6 +1,6 @@
 package com.project.filecrud.converter;
 
-import com.project.filecrud.vo.FileVO;
+import com.project.filecrud.dto.FileDTO;
 import lombok.SneakyThrows;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -10,11 +10,11 @@ import java.util.Objects;
 import java.util.function.Function;
 
 @Component
-public class RequestToFileVOConverter implements Function<MultipartFile, FileVO>, Converter<MultipartFile, FileVO> {
+public class RequestToFileDTOConverter implements Function<MultipartFile, FileDTO>, Converter<MultipartFile, FileDTO> {
     @SneakyThrows
     @Override
-    public FileVO apply(MultipartFile file) {
-        return FileVO.builder()
+    public FileDTO apply(MultipartFile file) {
+        return FileDTO.builder()
                 .name(file.getName())
                 .size(file.getSize())
                 .extension(Objects.nonNull(file.getOriginalFilename()) ? file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1) : "")
@@ -22,7 +22,7 @@ public class RequestToFileVOConverter implements Function<MultipartFile, FileVO>
     }
 
     @Override
-    public FileVO convert(MultipartFile source) {
+    public FileDTO convert(MultipartFile source) {
         return apply(source);
     }
 }

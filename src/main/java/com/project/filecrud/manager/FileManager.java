@@ -1,6 +1,6 @@
 package com.project.filecrud.manager;
 
-import com.project.filecrud.converter.RequestToFileVOConverter;
+import com.project.filecrud.converter.RequestToFileDTOConverter;
 import com.project.filecrud.enums.ErrorMessage;
 import com.project.filecrud.enums.SuccessMessage;
 import com.project.filecrud.model.exception.BadRequestException;
@@ -8,7 +8,7 @@ import com.project.filecrud.model.response.BaseResponse;
 import com.project.filecrud.model.response.file.*;
 import com.project.filecrud.service.FileService;
 import com.project.filecrud.validator.FileSaveRequestValidator;
-import com.project.filecrud.vo.FileVO;
+import com.project.filecrud.dto.FileDTO;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -20,44 +20,44 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileManager {
     private final FileService fileService;
     private final FileSaveRequestValidator fileSaveRequestValidator;
-    private final RequestToFileVOConverter requestToFileVOConverter;
+    private final RequestToFileDTOConverter requestToFileDTOConverter;
 
 
     public BaseResponse save(MultipartFile file){
-        FileVO fileVO = requestToFileVOConverter.convert(file);
+        FileDTO fileDTO = requestToFileDTOConverter.convert(file);
         try{
-            fileSaveRequestValidator.validate(fileVO);
-            fileVO = fileService.save(fileVO);
+            fileSaveRequestValidator.validate(fileDTO);
+            fileDTO = fileService.save(fileDTO);
         }catch (BadRequestException e1){
             return new FileSaveFailResponse(e1.getMessage());
         }catch (Exception e){
             return new FileSaveFailResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
         }
 
-        return new FileSaveSuccessResponse(SuccessMessage.FILE_SAVE_SUCCESS.getValue(), fileVO);
+        return new FileSaveSuccessResponse(SuccessMessage.FILE_SAVE_SUCCESS.getValue(), fileDTO);
     }
 
     public BaseResponse retrieve(Integer id){
-        FileVO fileVO;
+        FileDTO fileDTO;
         try{
-            fileVO = fileService.retrieve(id);
+            fileDTO = fileService.retrieve(id);
         }catch (ObjectNotFoundException e1){
             return new FileRetrieveFailResponse(e1.getMessage());
         }
-        return new FileRetrieveSuccessResponse(SuccessMessage.FILE_RETRIEVE_SUCCESS.getValue(), fileVO);
+        return new FileRetrieveSuccessResponse(SuccessMessage.FILE_RETRIEVE_SUCCESS.getValue(), fileDTO);
     }
 
     public BaseResponse update(Integer id, MultipartFile file){
-        FileVO fileVO = requestToFileVOConverter.convert(file);
+        FileDTO fileDTO = requestToFileDTOConverter.convert(file);
         try {
-            fileSaveRequestValidator.validate(fileVO);
-            fileVO = fileService.update(id, fileVO);
+            fileSaveRequestValidator.validate(fileDTO);
+            fileDTO = fileService.update(id, fileDTO);
         }catch (BadRequestException | ObjectNotFoundException e1){
             return new FileSaveFailResponse(e1.getMessage());
         } catch (Exception e3){
             return new FileSaveFailResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
         }
-        return new FileSaveSuccessResponse(SuccessMessage.FILE_UPDATE_SUCCESS.getValue(), fileVO);
+        return new FileSaveSuccessResponse(SuccessMessage.FILE_UPDATE_SUCCESS.getValue(), fileDTO);
     }
 
     public BaseResponse delete(Integer id){
