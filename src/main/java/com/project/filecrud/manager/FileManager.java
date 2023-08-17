@@ -29,12 +29,12 @@ public class FileManager {
             fileSaveRequestValidator.validate(fileDTO);
             fileDTO = fileService.save(fileDTO);
         }catch (BadRequestException e1){
-            return new FileSaveFailResponse(e1.getMessage());
+            return new BadRequestResponse(e1.getMessage());
         }catch (Exception e){
-            return new FileSaveFailResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
+            return new BadRequestResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
         }
 
-        return new FileSaveSuccessResponse(SuccessMessage.FILE_SAVE_SUCCESS.getValue(), fileDTO);
+        return new SuccessResponse(SuccessMessage.FILE_SAVE_SUCCESS.getValue(), fileDTO);
     }
 
     public BaseResponse retrieve(Integer id){
@@ -42,9 +42,9 @@ public class FileManager {
         try{
             fileDTO = fileService.retrieve(id);
         }catch (ObjectNotFoundException e1){
-            return new FileRetrieveFailResponse(e1.getMessage());
+            return new NotFoundResponse(e1.getMessage());
         }
-        return new FileRetrieveSuccessResponse(SuccessMessage.FILE_RETRIEVE_SUCCESS.getValue(), fileDTO);
+        return new SuccessResponse(SuccessMessage.FILE_RETRIEVE_SUCCESS.getValue(), fileDTO);
     }
 
     public BaseResponse update(Integer id, MultipartFile file){
@@ -53,21 +53,21 @@ public class FileManager {
             fileSaveRequestValidator.validate(fileDTO);
             fileDTO = fileService.update(id, fileDTO);
         }catch (BadRequestException | ObjectNotFoundException e1){
-            return new FileSaveFailResponse(e1.getMessage());
+            return new BadRequestResponse(e1.getMessage());
         } catch (Exception e3){
-            return new FileSaveFailResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
+            return new BadRequestResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
         }
-        return new FileSaveSuccessResponse(SuccessMessage.FILE_UPDATE_SUCCESS.getValue(), fileDTO);
+        return new SuccessResponse(SuccessMessage.FILE_UPDATE_SUCCESS.getValue(), fileDTO);
     }
 
     public BaseResponse delete(Integer id){
         try{
             fileService.delete(id);
         }catch (EmptyResultDataAccessException e1){
-            return new FileDeleteFailResponse(ErrorMessage.FILE_NOT_FOUND.getValue());
+            return new BadRequestResponse(ErrorMessage.FILE_NOT_FOUND.getValue());
         }catch (Exception e2){
-            return new FileDeleteFailResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
+            return new BadRequestResponse(ErrorMessage.UNEXPECTED_ERROR.getValue());
         }
-        return new FileDeleteSuccessResponse(SuccessMessage.FILE_DELETE_SUCCESS.getValue(), id);
+        return new SuccessResponse(SuccessMessage.FILE_DELETE_SUCCESS.getValue(), id);
     }
 }

@@ -7,10 +7,10 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class FileSaveFailResponse extends BaseResponse {
-    public FileSaveFailResponse(String message){
+public class NotFoundResponse extends BaseResponse {
+    public NotFoundResponse(String message){
         super(message);
-        this.setStatus(HttpStatus.BAD_REQUEST);
+        this.setStatus(HttpStatus.NOT_FOUND);
         this.setSuccess(false);
     }
 }

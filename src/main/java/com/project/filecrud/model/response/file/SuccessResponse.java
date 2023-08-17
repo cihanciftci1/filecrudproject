@@ -1,7 +1,6 @@
 package com.project.filecrud.model.response.file;
 
 import com.project.filecrud.model.response.BaseResponse;
-import com.project.filecrud.dto.FileDTO;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
@@ -10,12 +9,12 @@ import java.util.Map;
 
 @Getter
 @Setter
-public class FileSaveSuccessResponse extends BaseResponse {
-    private Map<String, FileDTO> data;
+public class SuccessResponse extends BaseResponse {
+    private Map<String, Object> data;
 
-    public FileSaveSuccessResponse(String message, FileDTO fileDTO){
+    public SuccessResponse(String message, Object data){
         super(message);
-        this.data = Map.of("file", fileDTO);
+        this.data = Map.of("data", data);
         this.setStatus(HttpStatus.OK);
         this.setSuccess(true);
     }
