@@ -1,10 +1,12 @@
 package com.project.filecrud.enums;
 
 public enum SuccessMessage {
-    FILE_SAVE_SUCCESS("File saved successfully!"),
-    FILE_UPDATE_SUCCESS("File updated successfully!"),
-    FILE_RETRIEVE_SUCCESS("File retrieved successfully!"),
-    FILE_DELETE_SUCCESS("File deleted successfully");
+    FILE_SAVE_SUCCESS("File save successful!"),
+    FILE_UPDATE_SUCCESS("File update successful!"),
+    FILE_RETRIEVE_SUCCESS("File retrieve successful!"),
+    FILE_DELETE_SUCCESS("File delete successful"),
+    USER_REGISTERED("User register successful"),
+    USER_LOGGED_IN("User login successful");
 
     private final String value;
 

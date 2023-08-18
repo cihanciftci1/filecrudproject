@@ -47,4 +47,4 @@ public class FileController {
 }
 
 
-//TODO authentication -> unit test -> swagger -> docker -> postman -> github readme
+//TODO unit test -> swagger -> docker -> postman -> github readme

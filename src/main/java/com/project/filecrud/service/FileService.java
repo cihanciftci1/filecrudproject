@@ -2,10 +2,10 @@ package com.project.filecrud.service;
 
 import com.project.filecrud.converter.ByteArrayConverter;
 import com.project.filecrud.converter.FileToDTOConverter;
+import com.project.filecrud.dto.FileDTO;
 import com.project.filecrud.entity.File;
 import com.project.filecrud.enums.FileExtension;
 import com.project.filecrud.repository.FileRepository;
-import com.project.filecrud.dto.FileDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.ObjectNotFoundException;

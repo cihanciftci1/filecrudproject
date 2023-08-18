@@ -18,4 +18,17 @@ public class SuccessResponse extends BaseResponse {
         this.setStatus(HttpStatus.OK);
         this.setSuccess(true);
     }
+
+    public SuccessResponse(String message){
+        super(message);
+        this.setStatus(HttpStatus.OK);
+        this.setSuccess(true);
+    }
+
+    public SuccessResponse(String message, String content, Object data){
+        super(message);
+        this.data = Map.of(content, data);
+        this.setStatus(HttpStatus.OK);
+        this.setSuccess(true);
+    }
 }
