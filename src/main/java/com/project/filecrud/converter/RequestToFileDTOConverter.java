@@ -6,6 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -15,10 +16,11 @@ public class RequestToFileDTOConverter implements Function<MultipartFile, FileDT
     @Override
     public FileDTO apply(MultipartFile file) {
         return FileDTO.builder()
-                .name(file.getName())
+                .name(file.getOriginalFilename().substring(0, file.getOriginalFilename().lastIndexOf(".")))
                 .size(file.getSize())
                 .extension(Objects.nonNull(file.getOriginalFilename()) ? file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1) : "")
-                .bytes(ByteArrayConverter.convertBytesToStringBytes(file.getBytes())).build();
+                .bytes(Arrays.toString(file.getBytes()))
+                .build();
     }
 
     @Override

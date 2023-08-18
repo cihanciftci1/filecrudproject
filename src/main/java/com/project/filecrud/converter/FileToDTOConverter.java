@@ -5,6 +5,7 @@ import com.project.filecrud.entity.File;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.function.Function;
 
 @Component
@@ -16,7 +17,7 @@ public class FileToDTOConverter implements Function<File, FileDTO>, Converter<Fi
                 .name(file.getName())
                 .size(file.getSize())
                 .extension(file.getExtension().toString())
-                .bytes(ByteArrayConverter.convertBytesToStringBytes(file.getBytes()))
+                .bytes(Arrays.toString(file.getBytes()))
                 .build();
     }
 

@@ -15,9 +15,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.validation.Valid;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +26,7 @@ public class AuthService {
     private final JWTGenerator jwtGenerator;
 
 
-    public void register(@Valid @RequestBody AuthRequest authRequest){
+    public void register(AuthRequest authRequest){
         log.info("Auth Service register is starting with | : {}", authRequest.getUsername());
         if (accountRepository.existsByUsername(authRequest.getUsername())) throw new BadRequestException(ErrorMessage.USERNAME_TAKEN.getValue());
 
@@ -44,7 +41,7 @@ public class AuthService {
         log.info("Auth Service register is finished for | : {}", authRequest.getUsername());
     }
 
-    public String login(@Valid @RequestBody AuthRequest authRequest){
+    public String login(AuthRequest authRequest){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     authRequest.getUsername(), authRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);

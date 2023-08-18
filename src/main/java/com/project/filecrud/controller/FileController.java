@@ -31,8 +31,8 @@ public class FileController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<BaseResponse> update(@RequestParam(name = "id") Integer id, @RequestParam(name = "file") MultipartFile file){
+    @PostMapping("/{id}")
+    public ResponseEntity<BaseResponse> update(@PathVariable Integer id, @RequestParam(name = "file") MultipartFile file){
         log.info("File controller, file update starts with | id : {}, fileName : {}", id, file.getName());
         BaseResponse response = fileManager.update(id, file);
         return new ResponseEntity<>(response, HttpStatus.OK);
