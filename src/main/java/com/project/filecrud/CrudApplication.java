@@ -2,12 +2,14 @@ package com.project.filecrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-public class Application {
+@EnableSwagger2
+public class CrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CrudApplication.class, args);
 	}
 
 }
