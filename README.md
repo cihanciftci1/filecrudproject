@@ -31,7 +31,7 @@ File CRUD App is an backend application that creates, retries, updates and delet
 ### About Controllers
 - Postman Collection is added to root directory. You can send request once you run the application and see request/response examples.
 
-- All endpoints are secured. So first you need to register and then you can login with your username and password. You will receieve a token in a response body. When you send a request to other APIs you must use that token with "Authorization" key in the Headers. Token expires after 15 mins.
+- All endpoints are secured. So first you need to register and then you can login with your username and password. You will receieve a token in a response body. When you send a request to other APIs you must use that token with Bearer Token type in Authorization tab. Token expires after 15 mins.
 
 ### File Controller
 
