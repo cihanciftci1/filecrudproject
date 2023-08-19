@@ -29,7 +29,7 @@ File CRUD App is an backend application that creates, retries, updates and delet
 ## Controllers
 
 ### About Controllers
-- Postman Collection is added to root directory. You can send request once you run the application and see request/response bodies.
+- Postman Collection is added to root directory. You can send request once you run the application and see request/response examples.
 
 - All endpoints are secured. So first you need to register and then you can login with your username and password. You will receieve a token in a response body. When you send a request to other APIs you must use that token with "Authorization" key in the Headers. Token expires after 15 mins.
 
@@ -40,7 +40,7 @@ File CRUD App is an backend application that creates, retries, updates and delet
 ```http
   POST /api/v1/file
 ```
-A file is need in form-data -> 
+<sup><sub>A file is need in form-data -> </sub></sup>
 ![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/542b7655-388d-4e32-a63f-929387a95426)
 
 
@@ -57,8 +57,9 @@ A file is need in form-data ->
 ```http
   POST /api/v1/file/{fileId}
 ```
-A file is need in form-data -> 
-![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/542b7655-388d-4e32-a63f-929387a95426)
+<sub>A file is need in form-data -> </sub>
+![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/f8e174c6-e725-4d5b-aeec-11cca281008b)
+
 
 
 #### Delete
