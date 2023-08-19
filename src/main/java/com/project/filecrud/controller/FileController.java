@@ -45,6 +45,3 @@ public class FileController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
-
-
-//TODO  docker ->  github readme
