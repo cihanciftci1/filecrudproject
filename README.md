@@ -40,7 +40,8 @@ File CRUD App is an backend application that creates, retrieves, updates and del
 ```http
   POST /api/v1/file
 ```
-A file is need in form-data ->< br/>![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/542b7655-388d-4e32-a63f-929387a95426)
+A file is need in form-data ->
+![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/542b7655-388d-4e32-a63f-929387a95426)
 
 
 
