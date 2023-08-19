@@ -1,6 +1,6 @@
 # File CRUD Project
 
-File CRUD App is an backend application that creates, retries, updates and deletes files to/from MySQL database. Developed with below techs : 
+File CRUD App is an backend application that creates, retrieves, updates and deletes files to/from MySQL database. Developed with below techs : 
 - JDK 11
 - Spring Boot
 - MySQL Database
