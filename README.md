@@ -76,7 +76,7 @@ A file is need in form-data ->
   POST /api/v1/auth
 ```
 
-A JSON Body is needed -> 
+A JSON Body is needed ->     
 ![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/76ed8870-f16b-4562-957b-be56d3532fc3)
 
 
@@ -86,7 +86,7 @@ A JSON Body is needed ->
   GET /api/v1/auth
 ```
 
-A JSON Body is needed -> 
+A JSON Body is needed ->      
 ![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/76ed8870-f16b-4562-957b-be56d3532fc3)
 
 
