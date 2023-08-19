@@ -73,7 +73,7 @@ A file is need in form-data -> (https://github.com/cihanciftci1/filecrudproject/
   POST /api/v1/auth
 ```
 
-A JSON Body is needed -> (https://github.com/cihanciftci1/filecrudproject/assets/72259867/76ed8870-f16b-4562-957b-be56d3532fc3)
+A JSON Body is needed -> ![](https://github.com/cihanciftci1/filecrudproject/assets/72259867/76ed8870-f16b-4562-957b-be56d3532fc3)
 
 
 #### Login
@@ -82,7 +82,7 @@ A JSON Body is needed -> (https://github.com/cihanciftci1/filecrudproject/assets
   GET /api/v1/auth
 ```
 
-A JSON Body is needed -> (https://github.com/cihanciftci1/filecrudproject/assets/72259867/76ed8870-f16b-4562-957b-be56d3532fc3)
+A JSON Body is needed -> !(https://github.com/cihanciftci1/filecrudproject/assets/72259867/76ed8870-f16b-4562-957b-be56d3532fc3)
 
 
 You can check also APIs in the link below after running the application :   
