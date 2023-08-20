@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileSaveRequestValidator {
     public void validate(FileDTO file){
-        if((file.getSize() / 1024 / 1024) > 5) throw new BadRequestException(ErrorMessage.INVALID_FILE_SIZE.getValue());
+        if((file.getSize() / 1048576.0) > 5) throw new BadRequestException(ErrorMessage.INVALID_FILE_SIZE.getValue());
 
         if(!containsFileExtension(file.getExtension())) throw new BadRequestException(ErrorMessage.INVALID_FILE_EXTENSION.getValue());
 

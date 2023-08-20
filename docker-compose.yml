@@ -3,6 +3,7 @@ services:
   mysql:
     image: "mysql:latest"
     restart: on-failure
+    command: --max_allowed_packet=10485760
     ports:
       - "3307:3306"
     environment:
@@ -22,5 +23,6 @@ services:
       spring.datasource.mysql.jdbcUrl : jdbc:mysql://mysql/filecrud?createDatabaseIfNotExists=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
       spring.datasource.mysql.username : username
       spring.datasource.mysql.password : password
+      spring.servlet.multipart.max-file-size : 10MB
     depends_on:
       - mysql

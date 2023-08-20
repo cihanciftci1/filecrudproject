@@ -7,7 +7,8 @@ public enum ErrorMessage {
     FILE_NOT_FOUND("File is not found with given id!"),
     USERNAME_TAKEN("Username is already taken!"),
     USERNAME_NOT_FOUND("Username is not found!"),
-    USER_UNAUTHORIZED("User is not unauthorized!");
+    USER_UNAUTHORIZED("User is not unauthorized!"),
+    INVALID_USERNAME_PASSWORD("Username or password is invalid!");
 
     private final String value;
 
