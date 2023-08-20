@@ -14,13 +14,13 @@ File CRUD App is an backend application that creates, retrieves, updates and del
 - Install Docker and start the application
 ### To Run
 - Run "mvn clean install" in terminal
-- Run "docker-compose up --build" in terminal
+- Run "docker-compose up" in terminal
 
 (When the application is run for the first time, it might encounter a few errors due to the database preparation, which can take some time. However, the application will function properly when the database is ready.)
 
 ### To Stop
 - Press CTRL+C in terminal
-- Run "docker-compose down" in terminal
+- Run "docker-compose down --rmi all" in terminal (It removes containers and images related to project.)
 
 ## Entities and Fields
 
